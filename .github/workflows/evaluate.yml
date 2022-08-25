@@ -1,0 +1,21 @@
+name: Evaluate              # <- Workflow name.
+
+on:                                             # <- The trigger definition block.
+  push:                                         # <- An event to trigger the action, of type push.
+    branches: [                                 # <- Target Branches. Accepts an array.
+      main,
+    ]
+
+jobs:                                           # <- The execution of work block.
+  Job-Identifier:                               # <- Job ID. Contains related action steps.
+    name: Executing Hello World Script          # <- Job Name.
+    runs-on: self-hosted                     # <- Tells the server which OS to run on. Can also be windows, macOS, or even self-hosted.      
+
+    steps:                                      # <- Step definitions.
+      - uses: actions/checkout@v2               # <- Use keyword selects an action. Actions/ path in github is where common actions are predefined.
+
+      - name: Hello World 
+        shell: bash
+        run: echo "hello world"
+
+
