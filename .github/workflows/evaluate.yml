@@ -16,6 +16,6 @@ jobs:                                           # <- The execution of work block
 
       - name: Hello World 
         shell: bash
-        run: ls /workspace/projects/SummerCamp2022/data 
+        run: ls /workspace/SummerCamp2022/data 
 
 
