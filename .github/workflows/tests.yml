@@ -8,12 +8,12 @@ on:                                             # <- The trigger definition bloc
 
 jobs:                                           # <- The execution of work block.
   Job-Identifier:                               # <- Job ID. Contains related action steps.
-    name: Evaluate          # <- Job Name.
+    name: Run Tests          # <- Job Name.
     runs-on: self-hosted                     # <- Tells the server which OS to run on. Can also be windows, macOS, or even self-hosted.      
 
     steps:                                      # <- Step definitions.
       - uses: actions/checkout@v2               # <- Use keyword selects an action. Actions/ path in github is where common actions are predefined.
 
-      - name: Execute the run script for main.py
+      - name: Run pytest
         shell: bash
-        run: ./run.sh
+        run: pytest -s .
