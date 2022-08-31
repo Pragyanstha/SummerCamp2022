@@ -1,4 +1,4 @@
-name: Evaluate              # <- Workflow name.
+name: Test              # <- Workflow name.
 
 on:                                             # <- The trigger definition block.
   push:                                         # <- An event to trigger the action, of type push.
