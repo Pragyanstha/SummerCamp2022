@@ -1,5 +1,6 @@
 data/
 actions-runner/
+results/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
