@@ -16,4 +16,4 @@ jobs:                                           # <- The execution of work block
 
       - name: Run pytest
         shell: bash
-        run: conda activate summer && pytest -s .
+        run: pytest -s .
