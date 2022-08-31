@@ -13,7 +13,8 @@ jobs:                                           # <- The execution of work block
 
     steps:                                      # <- Step definitions.
       - uses: actions/checkout@v2               # <- Use keyword selects an action. Actions/ path in github is where common actions are predefined.
+      - name: Install requirements
+        run: python install -r requirements.txt
 
       - name: Run pytest
-        shell: bash
         run: pytest -s .
