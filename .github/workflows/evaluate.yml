@@ -16,4 +16,4 @@ jobs:                                           # <- The execution of work block
 
       - name: Execute the run script for main.py
         shell: bash
-        run: ./run.sh
+        run: conda activate summer && ./run.sh
