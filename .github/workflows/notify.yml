@@ -1,4 +1,4 @@
-name: notify
+name: Notify
 on:
   issues:
     types: [opened, closed]
@@ -9,9 +9,71 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-    steps:
+steps:
+    - name: Git Issue Details
+      run: |
+          echo "Issue creator: ${{ github.event.issue.user.login }}"
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue number: ${{ github.event.issue.number }}"
+          echo "Issue url: ${{ github.event.issue.html_url }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
+          echo "Assigned labels: " ${{ join(github.event.issue.labels.*.name) }}
+          echo "Assignees: " ${{ join(github.event.issue.assignees.*.login) }}
     - name: Google Chat Notification
-      uses: CommonMarvel/google-chat-notification@v1.1.1
-      with:
-        url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
-  
+      run: |
+          curl --location --request POST '${{ secrets.GOOGLE_CHAT_WEBHOOK }}' \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+              "cards": [
+                  {
+                      "header": {
+                          "title": "Issue Tracker",
+                          "subtitle": "Issue No: #${{ github.event.issue.number }}"
+                      },
+                      "sections": [
+                          {
+                              "widgets": [
+                                  {
+                                     "keyValue": {
+                                          "topLabel": "Creator",
+                                          "content": "${{ github.event.issue.user.login }}"
+                                      },
+                                   },
+                                   {
+                                     "keyValue": {
+                                          "topLabel": "Title",
+                                          "content": "${{ github.event.issue.title }}"
+                                      }
+                                   },
+                                   {
+                                     "keyValue": {
+                                          "topLabel": "Assigned Lables",
+                                          "content": "- ${{ join(github.event.issue.labels.*.name) }}"
+                                      }
+                                   },
+                                   {
+                                     "keyValue": {
+                                          "topLabel": "Assignees",
+                                          "content": "- ${{ join(github.event.issue.assignees.*.login) }}"
+                                      }
+                                   },
+                                   {
+                                      "buttons": [
+                                          {
+                                              "textButton": {
+                                                  "text": "OPEN ISSUE",
+                                                  "onClick": {
+                                                      "openLink": {
+                                                          "url": "${{ github.event.issue.html_url }}"
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                      ]
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              ]
+          }'
