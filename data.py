@@ -7,7 +7,7 @@ import sys
 
 import numpy as np
 import cv2
-
+import imageio
 
 class Dataset():
     def __init__(self, data_dir, result_dir, fps=5):
@@ -22,6 +22,7 @@ class Dataset():
         self.original_fps = read_fps
         self.total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         self.thresh = read_fps / fps #フレーム何枚につき1枚処理するか
+        self.fps = fps
         frame_counter = 0   
         self.imgs = []
 
@@ -33,6 +34,7 @@ class Dataset():
             frame_counter += 1
 
             if (frame_counter >= self.thresh): #フレームカウントがthreshを超えたら処理する
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 self.imgs.append(frame)
                 frame_counter = 0 #フレームカウントを０に戻す
         self.imgs = np.stack(self.imgs, axis=0)
@@ -51,6 +53,11 @@ class Dataset():
         with open(join(self.result_dir, f"output.csv"), "w") as f:
             f.writelines(["Good Job !!"])
 
+    def export_images(self, export_dir):
+        makedirs(export_dir, exist_ok=True)
+        for i, img in enumerate(self.imgs):
+            FILENAME = f"{np.ceil(i*self.fps).astype(np.int32):04d}.png"
+            imageio.imwrite(join(export_dir, FILENAME), img)
 
     def get_images(self, index):
         return self.imgs[index]
