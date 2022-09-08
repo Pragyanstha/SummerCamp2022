@@ -1,6 +1,9 @@
 data/
 actions-runner/
 results/
+.vscode/
+work_dirs/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
