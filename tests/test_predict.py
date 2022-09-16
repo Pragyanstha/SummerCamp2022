@@ -21,9 +21,9 @@ import cv2
 
 
 def test_predict():
-    checkpoint_file = "/home/workspace/kiyama/SummerCamp2022/work_dirs/faster_rcnn_r50_fpn/latest.pth"
-    config_file = "/home/workspace/kiyama/SummerCamp2022/configs/faster_rcnn_r50_fpn.py"
-    model = init_detector(config_file, checkpoint_file, device='cuda:0')
+    checkpoint_file = "/workspace/SummerCamp2022/work_dirs/faster_rcnn_r50_fpn/latest.pth"
+    config_file = "/workspace/SummerCamp2022/configs/faster_rcnn_r50_fpn.py"
+    model = init_detector(config_file, checkpoint_file, device='cuda:1')
 
     # test a single image and show the results
     img = '/home/workspace/kiyama/SummerCamp2022/data/Problem_04/images/0120.png'  # or img = mmcv.imread(img), which will only load it once
