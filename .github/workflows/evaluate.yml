@@ -19,15 +19,26 @@ jobs:                                           # <- The execution of work block
       - name: Execute the run script for main.py
         run: ./run.sh
 
-      - name: Read CSV
-        id: csv
+      - name: Read CSV Problem 1
+        id: csv_pred
         uses: juliangruber/read-file-action@v1
         with:
           path: /workspace/SummerCamp2022/results/Problem_01/output-Problem_01.csv
-      - name: CSV to Markdown Table
-        uses: petems/csv-to-md-table-action@v1.0.0
-        id: csv-table-output
+      - uses: juliangruber/read-file-action@v1
+        id: csv_gt
         with:
-          csvinput: ${{ steps.csv.outputs.content }}
-      - name: Make report
-        run: echo "${{steps.csv-table-output.outputs.markdown-table}}"  >> $GITHUB_STEP_SUMMARY
+          path: /workspace/SummerCamp2022/data/output-Problem_01.csv
+  
+      - uses: petems/csv-to-md-table-action@v1.0.0
+        id: csv-table-output_pred
+        with:
+          csvinput: ${{ steps.csv_pred.outputs.content }}
+      - uses: petems/csv-to-md-table-action@v1.0.0
+        id: csv-table-output_gt
+        with:
+          csvinput: ${{ steps.csv_gt.outputs.content }}
+        run: |
+             echo "Problem 1 Ground Truth"  >> $GITHUB_STEP_SUMMARY
+             echo "${{steps.csv-table-output_gt.outputs.markdown-table}}"  >> $GITHUB_STEP_SUMMARY
+             echo "Problem 1 Predicted"  >> $GITHUB_STEP_SUMMARY
+             echo  "${{steps.csv-table-output_pred.outputs.markdown-table}}"  >> $GITHUB_STEP_SUMMARY
