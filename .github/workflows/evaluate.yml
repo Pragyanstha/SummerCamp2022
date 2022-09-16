@@ -24,7 +24,8 @@ jobs:                                           # <- The execution of work block
         uses: juliangruber/read-file-action@v1
         with:
           path: /workspace/SummerCamp2022/results/Problem_01/output-Problem_01.csv
-      - uses: petems/csv-to-md-action@master
+      - name: CSV to Markdown Table
+        uses: petems/csv-to-md-table-action@v1.0.0
         id: csv-table-output
         with:
           csvinput: ${{ steps.csv.outputs.content }}
