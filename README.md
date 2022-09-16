@@ -1,5 +1,5 @@
 # :tropical_fish: SummerCamp2022
-[![Evaluate and Send Result](https://github.com/Pragyanstha/SummerCamp2022/actions/workflows/evaluate.yml/badge.svg?branch=develop)](https://github.com/Pragyanstha/SummerCamp2022/actions/workflows/evaluate.yml)
+[![Evaluate and Send Result](https://github.com/Pragyanstha/SummerCamp2022/actions/workflows/evaluate.yml/badge.svg)](https://github.com/Pragyanstha/SummerCamp2022/actions/workflows/evaluate.yml)
 [![Test](https://github.com/Pragyanstha/SummerCamp2022/actions/workflows/tests.yml/badge.svg)](https://github.com/Pragyanstha/SummerCamp2022/actions/workflows/tests.yml)
 
 画像研合宿2022 Team DのRepoです.   
