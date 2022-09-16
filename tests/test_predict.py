@@ -25,7 +25,7 @@ def test_predict():
     model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
     # test a single image and show the results
-    img = 'data/Problem_04/images/0120.png'  # or img = mmcv.imread(img), which will only load it once
+    img = '/workspace/SummerCamp2022/data/Problem_04/images/0120.png'  # or img = mmcv.imread(img), which will only load it once
     result = inference_detector(model, img)
     print(result)
     assert len(result) > 0
