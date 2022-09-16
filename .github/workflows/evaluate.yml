@@ -3,7 +3,7 @@ name: Evaluate and Send Result             # <- Workflow name.
 on:                                             # <- The trigger definition block.
   push:                                         # <- An event to trigger the action, of type push.
     branches: [                                 # <- Target Branches. Accepts an array.
-      main, mmdet
+      main, develop
     ]
 
 jobs:                                           # <- The execution of work block.
