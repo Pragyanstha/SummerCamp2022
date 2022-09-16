@@ -64,7 +64,13 @@ git checkout develop
 git checkout -b {新しく作るブランチ名}
 ```
 基本的にはここで作業してもらって, 終わったらremoteにpush(同名のブランチで).  
-そしてdevelopに向けてのプルリクエストを出してください.  
+初回push時はまだremote repositoryにlocalで作成したbranchがないので以下のコマンドでremoteにも作れてlocalの同ブランチをtrackできます.  
+```
+git push --set-upstream origin {あなたのブランチ名}
+```
+もちろんこのあとは通用のpushで行けます.  
+
+切りが良いところでdevelopに向けてのプルリクエストを出してください.  
 プルリクがmergeされたブランチは消して, 次のタスクは新しく```develop```からブランチを作成しましょう.  
 ちなみにブランチ名のネーミングルールを敢えて決めるならこんな感じでしょう.  
 ```
