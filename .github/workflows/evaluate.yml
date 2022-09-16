@@ -30,4 +30,4 @@ jobs:                                           # <- The execution of work block
         with:
           csvinput: ${{ steps.csv.outputs.content }}
       - name: Make report
-        run: echo ${{steps.csv-table-output.outputs.markdown-table}}  >> $GITHUB_STEP_SUMMARY
+        run: echo "${{steps.csv-table-output.outputs.markdown-table}}"  >> $GITHUB_STEP_SUMMARY
