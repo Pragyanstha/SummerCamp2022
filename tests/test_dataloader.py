@@ -3,8 +3,8 @@ import numpy as np
 from data import Dataset
 
 def test_dataloader():
-    DATA_DIR = "/workspace/SummerCamp2022/data/Problem_01"
-    RESULT_DIR = "/workspace/SummerCamp2022/results"
+    DATA_DIR = "/home/workspace/kiyama/SummerCamp2022/data/Problem_01"
+    RESULT_DIR = "/home/workspace/kiyama/SummerCamp2022/results"
 
     dataset = Dataset(DATA_DIR, RESULT_DIR, fps=5)
 

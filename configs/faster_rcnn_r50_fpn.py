@@ -149,7 +149,7 @@ model = dict(
 
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = 'data/'
+data_root = '/home/workspace/kiyama/SummerCamp2022/data/'
 classes = ('メダカ', 'カワメダカ', '小金(赤)', '小金(黒)', '出目金')
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
