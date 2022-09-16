@@ -1,6 +1,8 @@
 data/
+!data/README.md
 actions-runner/
 results/
+!results/README.md
 .vscode/
 work_dirs/
 

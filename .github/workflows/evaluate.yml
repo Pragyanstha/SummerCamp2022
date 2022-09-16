@@ -39,6 +39,6 @@ jobs:                                           # <- The execution of work block
           csvinput: ${{ steps.csv_gt.outputs.content }}
       - run: |
              echo "Problem 1 Ground Truth"  >> $GITHUB_STEP_SUMMARY
-             echo "${{steps.csv-table-output_gt.outputs.markdown-table}}"  >> $GITHUB_STEP_SUMMARY
+             echo "${{steps.csv-table-output_gt.outputs.markdown-table}}  \n\n" >> $GITHUB_STEP_SUMMARY
              echo "Problem 1 Predicted"  >> $GITHUB_STEP_SUMMARY
              echo  "${{steps.csv-table-output_pred.outputs.markdown-table}}"  >> $GITHUB_STEP_SUMMARY
