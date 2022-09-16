@@ -57,8 +57,8 @@ class Dataset():
         Write the results into file with required csv format
         """
         with open(join(self.result_dir, f"output-{problem_name}.csv"), "w") as f:
-            f.write(f"{problem_name}\n")
-            f.write("5\n")
+            f.write(f"{problem_name},\n")
+            f.write("5,\n")
             for i, elem in enumerate(results):
                 f.write(f"{i+1}, {elem}\n")
 
