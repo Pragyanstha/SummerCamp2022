@@ -34,10 +34,14 @@ class Dataset():
             frame_counter += 1
 
             if (frame_counter >= self.thresh): #フレームカウントがthreshを超えたら処理する
-                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                # Note the input is expected to be RGB so do not convert again !
+                # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) 
                 self.imgs.append(frame)
                 frame_counter = 0 #フレームカウントを０に戻す
         self.imgs = np.stack(self.imgs, axis=0)
+
+    def __len__(self):
+        return len(self.imgs)
 
     def evaluate(self, results):
         eval_result = {
