@@ -19,18 +19,30 @@ class Baseline():
     def __init__(self, configs):
         self.model = init_detector(configs.config_file, configs.weight_file, device=configs.device)
         self.result_dir = configs.result_dir
-        self.score_th = 0.5
+        self.score_th = 0.9
+
     def __call__(self, dataset):
         # test a single image and show the results
         total_imgs = len(dataset)
-
+        tracked = []
         # Inference using the model
-        for idx in range(0, total_imgs):
+        for idx in range(0, total_imgs, 10):
             print(f"Processing : {idx} / {total_imgs}")
             out_filename = os.path.join(self.result_dir, f"{idx}.png")
             img = dataset.get_images(idx)
             result = inference_detector(self.model, img)
+            tracked.append(self._count_fish(result))
             det_img = draw_bb(img, result, self.score_th)
             imageio.imwrite(out_filename, det_img)
 
-        return [50, 20, 1] # Still dummy 
+        tracked = np.array(tracked)
+        median_tracked = np.max(tracked, axis=0)
+        return median_tracked
+
+    def _count_fish(self, dets):
+        res = [0, 0, 0, 0, 0] # Five fishes
+        for label_id, class_det in enumerate(dets):
+            count = len(class_det)
+            res[label_id] = count
+    
+        return res

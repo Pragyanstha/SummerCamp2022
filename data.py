@@ -1,6 +1,7 @@
 from asyncore import read
 import csv
 import glob
+import os
 from os.path import join
 from os import makedirs
 import sys
@@ -51,11 +52,15 @@ class Dataset():
         return eval_result
 
     def write_results(self, results):
+        problem_name = self.result_dir.split("/")[-1]
         """
         Write the results into file with required csv format
         """
-        with open(join(self.result_dir, f"output.csv"), "w") as f:
-            f.writelines(["Good Job !!"])
+        with open(join(self.result_dir, f"output-{problem_name}.csv"), "w") as f:
+            f.write(f"{problem_name}\n")
+            f.write("5\n")
+            for i, elem in enumerate(results):
+                f.write(f"{i+1}, {elem}\n")
 
     def export_images(self, export_dir):
         makedirs(export_dir, exist_ok=True)

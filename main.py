@@ -12,6 +12,7 @@ def main(config):
     algo = get_algo(config)
     ## Main Algorithm here
     results = algo(dataset) # returs some dummpy values for now
+    print(results)
     dataset.write_results(results)
     ##
 
