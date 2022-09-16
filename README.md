@@ -32,6 +32,10 @@
 ## 環境構築
 基本的にはpythonの仮想環境(conda/venv)で作業することをおすすめします.  
 手順としてはmmdetをインストールして, その他のパッケージにはrequirements.txtを使います.
+### Pytorch
+[公式サイト](https://pytorch.org/)からインストールしてください.  
+NVIDIAのGPUがある人はCUDA11.3のものを, CPUのみの人はCPU onlyのものを.  
+
 ### MMDETのインストール
 ```
 pip install -U openmim
@@ -43,9 +47,34 @@ pip install mmdet
 pip install -r requirements.txt
 ```
 ## ベースラインの動作確認
+まずは学習済みの重みファイルを```weights/```下に配置します.  
+詳しくは[こちら](weights/README.md).  
+ダウンロードができたら早速実行じゃ!  
+```
+python main.py -c configs/baseline.ini
+```
+すると```results/```下に推論結果とcsvファイルができるはず!!  
+できなければorエラーが起きたら[こちら](https://github.com/Pragyanstha/SummerCamp2022/issues/5)のissueにエラー文と一緒にコメントしてくれれば対応します.  
 
+## 開発ルール
+ちょっとした開発ルールを設けます. ブランチは主に```develop```から切ってください, developにはみなさんの動くコード(統合版)がmergeされます. ```main```ブランチはアルコンに提出するコードにしましょう.  開発を始める第一歩は以下のコマンド.  
+```
+git pull
+git checkout develop
+git checkout -b {新しく作るブランチ名}
+```
+基本的にはここで作業してもらって, 終わったらremoteにpush(同名のブランチで).  
+そしてdevelopに向けてのプルリクエストを出してください.  
+プルリクがmergeされたブランチは消して, 次のタスクは新しく```develop```からブランチを作成しましょう.  
+ちなみにブランチ名のネーミングルールを敢えて決めるならこんな感じでしょう.  
+```
+{あなたの名前}/{タスクの説明}
+例) git checkout -b pragyan/update-readme
+例) git checkout -b  pragyan/5-create-model # タスクがissueにある場合は先頭にタスク番号入れると良いでしょう.
+```
+その他のbest practices (個人的なやつ)は[こちら](GUIDELINES.md)にまとめてあります.  
 
-## 学習する場合
+## 学習回す場合
 ### データセット
 学習用のデータセットは[ここ](http://tk2-109-55729.vs.sakura.ne.jp/)から欲しいProblem_*のものをexportする. exportの設定は以下の通り.  
 | 項目 | 値 |

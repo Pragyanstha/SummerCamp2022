@@ -2,6 +2,8 @@ data/
 !data/README.md
 actions-runner/
 results/
+weights/
+!weights/README.md
 !results/README.md
 .vscode/
 work_dirs/
