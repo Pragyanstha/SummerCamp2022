@@ -45,7 +45,7 @@ pip install -U openmim
 mim install mmcv-full
 pip install mmdet
 ```
-### その他パッケージのインステール
+### その他パッケージのインストール
 ```
 pip install -r requirements.txt
 ```
