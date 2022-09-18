@@ -17,30 +17,15 @@ from mmdet.utils import (collect_env, get_device, get_root_logger,
                          replace_cfg_vals, setup_multi_processes,
                          update_data_root)
 from mmdet.apis import init_detector, inference_detector
-import cv2
 
 
 def test_predict():
-    checkpoint_file = "/workspace/SummerCamp2022/work_dirs/faster_rcnn_r50_fpn/latest.pth"
+    checkpoint_file = "/workspace/SummerCamp2022/weights/latest.pth"
     config_file = "/workspace/SummerCamp2022/configs/faster_rcnn_r50_fpn.py"
     model = init_detector(config_file, checkpoint_file, device='cuda:1')
 
     # test a single image and show the results
-    img = '/home/workspace/kiyama/SummerCamp2022/data/Problem_04/images/0120.png'  # or img = mmcv.imread(img), which will only load it once
+    img = '/workspace/SummerCamp2022/data/Problem_04/images/0120.png'  # or img = mmcv.imread(img), which will only load it once
     result = inference_detector(model, img)
-    img_data = cv2.imread(img)
-    print(img_data)
     print(result)
     assert len(result) > 0
-
-
-checkpoint_file = "/home/workspace/kiyama/SummerCamp2022/work_dirs/faster_rcnn_r50_fpn/latest.pth"
-config_file = "/home/workspace/kiyama/SummerCamp2022/configs/faster_rcnn_r50_fpn.py"
-model = init_detector(config_file, checkpoint_file, device='cuda:0')
-
-# test a single image and show the results
-img = '/home/workspace/kiyama/SummerCamp2022/data/train/images/frame_000000.PNG'  # or img = mmcv.imread(img), which will only load it once
-result = inference_detector(model, img)
-
-print(result)
-assert len(result) > 0
