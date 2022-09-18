@@ -2,10 +2,7 @@ name: Notify
 on:
   issues:
     types: [opened, closed]
-  pull_request:
-    types: [opened, reopened, closed]
-  pull_request_review_comment:
-    types: [created]
+
 jobs:
   notify:
     runs-on: ubuntu-latest
