@@ -2,8 +2,12 @@ name: Test              # <- Workflow name.
 
 on:                                             # <- The trigger definition block.
   push:                                         # <- An event to trigger the action, of type push.
-    branches: [ * ]                                # <- Target Branches. Accepts an array.
-
+    branches: [                                 # <- Target Branches. Accepts an array.
+      main, develop
+    ]
+  pull_request:
+    types:
+      - opened
 
 jobs:                                           # <- The execution of work block.
   Job-Identifier:                               # <- Job ID. Contains related action steps.
