@@ -6,6 +6,9 @@ weights/*
 !weights/README.md
 .vscode/
 work_dirs/
+deep_sort_pytorch/
+test_deepsort.ipynb
+configs/deepsort/test_config.yaml
 
 
 # Byte-compiled / optimized / DLL files
