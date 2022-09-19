@@ -1,0 +1,6 @@
+config_file: "../configs/faster_rcnn_r50_fpn.py"
+weight_file: "../weights/latest.pth"
+data_dir: "../data/Problem_01"
+result_dir: "../results/Problem_01"
+device: "cuda"
+score_th: 0.9

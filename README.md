@@ -105,8 +105,10 @@ python train.py configs/faster_rcnn_r50_fpn.py
 ```
 重みファイルはデフォルトでは```work_dir/```内に作られます. 学習した重みファイルはユニークな名前をつけて```weights/```に保存しましょう (あとは[ドライブ](https://drive.google.com/drive/u/4/folders/1QzUicKbJgSQp-K5CSPSX4jgIue9fppzI)にアップロードしてメンバーに知らせましょう)
 アルゴリズムで使うときは```weeights/重みファイル名.pth```パスをconfigで設定します.
+
 ### 推論
 test_predict.pyの中身みて適当にいじってください.
-```
+
+```bash
 python tests/test_predict.py
 ```
