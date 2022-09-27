@@ -26,7 +26,7 @@ class Baseline():
         total_imgs = len(dataset)
         tracked = []
         # Inference using the model
-        for idx in range(0, total_imgs, 10):
+        for idx in range(0, total_imgs, 1):
             print(f"Processing : {idx} / {total_imgs}")
             out_filename = os.path.join(self.result_dir, f"{idx}.png")
             img = dataset.get_images(idx)
