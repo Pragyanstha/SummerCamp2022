@@ -10,7 +10,7 @@ deep_sort_pytorch/
 test_deepsort.ipynb
 configs/deepsort/test_config.yaml
 
-
+.DS_Store
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
