@@ -1,5 +1,6 @@
 import os
 
+import pandas as pd 
 import numpy as np
 import imageio
 import mmcv
@@ -25,15 +26,23 @@ class Baseline():
         # test a single image and show the results
         total_imgs = len(dataset)
         tracked = []
+        log=[]##自分が変更したところ
+        Coulum = ['メダカ', 'カワメダカ', '赤','黒','出目金']##自分が変更したところ
         # Inference using the model
-        for idx in range(0, total_imgs, 10):
+        for idx in range(0, total_imgs):
             print(f"Processing : {idx} / {total_imgs}")
             out_filename = os.path.join(self.result_dir, f"{idx}.png")
             img = dataset.get_images(idx)
             result = inference_detector(self.model, img)
             tracked.append(self._count_fish(result))
+            print(self._count_fish(result))##自分が変更したところ
+            log.insert(0,self._count_fish(result))##自分が変更したところ
             det_img = draw_bb(img, result, self.score_th)
             imageio.imwrite(out_filename, det_img)
+
+        df = pd.DataFrame(log, columns=Coulum)##自分が変更したところ
+        df.to_csv("/Users/mura/Projects/SummerCamp2022/results/log.csv")##自分が変更したところ
+        df.plot()
 
         tracked = np.array(tracked)
         median_tracked = np.max(tracked, axis=0)
