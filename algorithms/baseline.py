@@ -26,12 +26,14 @@ class Baseline():
         total_imgs = len(dataset)
         tracked = []
         # Inference using the model
-        for idx in range(0, total_imgs, 10):
+        for idx in range(0, total_imgs):
             print(f"Processing : {idx} / {total_imgs}")
             out_filename = os.path.join(self.result_dir, f"{idx}.png")
             img = dataset.get_images(idx)
             result = inference_detector(self.model, img)
-            tracked.append(self._count_fish(result))
+            count = self._count_fish(result, self.score_th)
+            tracked.append(count)
+            print(count)
             det_img = draw_bb(img, result, self.score_th)
             imageio.imwrite(out_filename, det_img)
 
@@ -39,10 +41,12 @@ class Baseline():
         median_tracked = np.max(tracked, axis=0)
         return median_tracked
 
-    def _count_fish(self, dets):
+    def _count_fish(self, dets, score_th):
         res = [0, 0, 0, 0, 0] # Five fishes
         for label_id, class_det in enumerate(dets):
-            count = len(class_det)
+            scores = class_det[:, -1]
+            selected_ids = scores > score_th
+            count = len(class_det[selected_ids, :])
             res[label_id] = count
     
         return res
