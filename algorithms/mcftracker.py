@@ -4,6 +4,7 @@ from typing import Any, Dict, List, Tuple, Optional
 import warnings
 from dataclasses import dataclass
 
+import pandas as pd
 import numpy as np
 import imageio
 import cv2
@@ -100,6 +101,9 @@ class MCFTracker():
             img = dataset.get_images(idx)
             result = inference_detector(self.model, img)
             results.append(result)
+            #result_class_1 = self._flow(result[0], 0,  dataset)
+            array_result = np.asarray(results)
+            print(array_result[0,0])
 
         count_0 = self._flow(results, 0,  dataset)
         count_1 = self._flow(results, 1,  dataset)
@@ -115,7 +119,7 @@ class MCFTracker():
         detections = {}
         tags = {}
         images = {}
-        t2f = []   
+        t2f = []
         for idx in range(0, total_imgs):
             class_dets = result[idx][class_id]
             img_id = f"{idx:04d}"

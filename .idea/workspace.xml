@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e78d5ec8-5e4f-40cf-aa59-a2146de4b0d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/baseline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms/mcftracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/mcftracker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/baseline.ini" beforeDir="false" afterPath="$PROJECT_DIR$/configs/baseline.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/mcftracker.ini" beforeDir="false" afterPath="$PROJECT_DIR$/configs/mcftracker.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/offline_tracking/py-globalflow" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +24,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -47,15 +50,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
