@@ -22,7 +22,7 @@ from mmdet.apis import init_detector, inference_detector
 def test_predict():
     checkpoint_file = "/workspace/SummerCamp2022/weights/latest.pth"
     config_file = "/workspace/SummerCamp2022/configs/faster_rcnn_r50_fpn.py"
-    model = init_detector(config_file, checkpoint_file, device='cuda:1')
+    model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
     # test a single image and show the results
     img = '/workspace/SummerCamp2022/data/Problem_04/images/0120.png'  # or img = mmcv.imread(img), which will only load it once

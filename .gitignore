@@ -9,6 +9,8 @@ work_dirs/
 deep_sort_pytorch/
 test_deepsort.ipynb
 configs/deepsort/test_config.yaml
+test_ML.ipynb
+.history
 
 
 # Byte-compiled / optimized / DLL files
