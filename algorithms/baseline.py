@@ -33,7 +33,7 @@ class Baseline():
             result = inference_detector(self.model, img)
             count = self._count_fish(result, self.score_th)
             tracked.append(count)
-            print(count)
+            print(count) 
             det_img = draw_bb(img, result, self.score_th)
             imageio.imwrite(out_filename, det_img)
 
