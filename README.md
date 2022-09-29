@@ -59,6 +59,16 @@ python main.py -c configs/baseline.ini
 すると```results/```下に推論結果とcsvファイルができるはず!!  
 できなければorエラーが起きたら[こちら](https://github.com/Pragyanstha/SummerCamp2022/issues/5)のissueにエラー文と一緒にコメントしてくれれば対応します.  
 
+### 最小コストネットワークフロートラッカーの動作確認
+まずはgit submoduleをupdateします
+```
+git submodule update
+```
+できたら``````
+```
+python main.py -c configs/mcftracker.ini
+```
+
 ## 開発ルール
 ちょっとした開発ルールを設けます. ブランチは主に```develop```から切ってください, developにはみなさんの動くコード(統合版)がmergeされます. ```main```ブランチはアルコンに提出するコードにしましょう.  開発を始める第一歩は以下のコマンド.  
 ```
