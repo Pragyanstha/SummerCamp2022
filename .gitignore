@@ -10,7 +10,11 @@ deep_sort_pytorch/
 test_deepsort.ipynb
 configs/deepsort/test_config.yaml
 test_ML.ipynb
+test_ML2.ipynb
+test_ML3.ipynb
 .history
+metriclearning_test/
+notebooks/*.png
 
 
 # Byte-compiled / optimized / DLL files

@@ -11,6 +11,8 @@ def get_config(args=None):
     p.add('--device', help='CUDA gpu number', type=str)
     p.add('--fps', type=int, default=5, help="FPS to read the video file")
     p.add('--weight_file', type=str, help="path to weight file")
+    p.add('--ML_model_path', type=str, help="path to weight file for metric learning")
+    p.add('--ML_features_path', type=str, help="path to config file for Metric Learing features")
     p.add('--config_file', type=str, help="path to config file for mmdetection models")
     if args is not None:
         return  p.parse_args(args)
