@@ -1,3 +1,6 @@
 [submodule "notebooks/offline_tracking/or-tools"]
 	path = notebooks/offline_tracking/or-tools
 	url = https://github.com/google/or-tools
+[submodule "algorithms/py-globalflow"]
+	path = algorithms/py-globalflow
+	url = https://github.com/cheind/py-globalflow.git

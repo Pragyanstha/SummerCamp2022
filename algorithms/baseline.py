@@ -32,6 +32,7 @@ class Baseline():
             out_filename = os.path.join(self.result_dir, f"{idx}.png")
             img = dataset.get_images(idx)
             result = inference_detector(self.model, img)
+            # ここ
             count = self._count_fish(result, self.score_th)
             tracked.append(count)
             print(count)
