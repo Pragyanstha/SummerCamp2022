@@ -184,7 +184,7 @@ class MCFTracker():
             ]
             # Use filenames instead of time indices
             obs_to_traj = {fname: ids for fname, ids in zip(fnames, obs_to_traj)}
-            count = stats.num_max_det
+            count = len(traj_info)
         except ValueError as e:
             print(f"could not solve for class {class_id}")
             count = 0
