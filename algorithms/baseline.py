@@ -1,5 +1,6 @@
 import os
 
+import pandas as pd
 import numpy as np
 import imageio
 import mmcv
@@ -33,11 +34,13 @@ class Baseline():
             result = inference_detector(self.model, img)
             count = self._count_fish(result, self.score_th)
             tracked.append(count)
-            print(count) 
+            print(count)
             det_img = draw_bb(img, result, self.score_th)
             imageio.imwrite(out_filename, det_img)
-
         tracked = np.array(tracked)
+        print(tracked)
+        df = pd.DataFrame(tracked, columns=['Medaka', 'Kawamedaka', 'Red', 'Black', 'Demekin'])
+        df.to_excel('C:\\Users\\bs826\\SummerCamp2022\\results\\result.xlsx')
         median_tracked = np.max(tracked, axis=0)
         return median_tracked
 
